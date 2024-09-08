@@ -1,0 +1,310 @@
+:root {
+    --primary-color: #292929;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    color: #f4f4f4;
+    line-height: 1.6;
+    background-color: var(--primary-color);
+    padding: 0;
+}
+
+.main-header {
+    background-color: var(--secondary-color);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-header h1 {
+    font-size: 2.5em;
+    color: var(--background-color);
+}
+
+.hero-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: #f4f4f4;
+}
+
+.hero-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--background-color);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.subordinate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.team-member, .subordinate-member {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-member:hover, .subordinate-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(77, 186, 210, 0.5);
+}
+
+img {
+    width: 160px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.member-details {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.member-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #f4f4f4;
+}
+
+.member-details p {
+    font-size: 1em;
+    color: #ccc;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: #f4f4f4;
+}
+
+footer a {
+    color: var(--background-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1148px) {
+    .subordinate-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-member, .subordinate-member {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .member-details {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    .subordinate-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+
+    .hero-section h2 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .team-grid, .subordinate-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.logo {
+    width: 64px;
+    height: 64px;
+    padding-left: 0;
+    object-fit: cover;
+}
+/* Preloader CSS */
+.pl {
+    background: linear-gradient(#041749 calc(50% + 3em), #062779 calc(50% + 5em) calc(50% + 21em), #041749);
+    position: fixed; /* Ensure it covers the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    z-index: 9999; /* Ensure it covers other content */
+  }
+  .pl, .pl:before {
+    width: 100%;
+    height: 100%;
+  }
+  .pl:before, .pl__sphere, .pl__sphere-shadow {
+    position: absolute;
+  }
+  .pl:before, .pl__sphere-shadow {
+    display: block;
+  }
+.pl:before {
+  background: #062779; /* A solid color for the plain floor */
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(90deg) translateZ(-8em);
+  width: 50em; /* Adjust size as needed */
+  height: 50em; /* Adjust size as needed */
+}
+
+  .pl__sphere {
+    animation-name: moveSphere;
+    background: #6e95f7;
+    box-shadow: 0 -1.5em 1em #255ff4 inset, 0 0 1em rgba(85, 131, 246, 0.7);
+    transform: translateZ(15em); /* Increase the depth */
+  }
+  .pl__sphere, .pl__sphere-shadow {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    border-radius: 50%;
+    top: calc(50% - 2em);
+    left: calc(50% - 2em);
+    width: 4em; /* Increase the size */
+    height: 4em; /* Increase the size */
+    z-index: 1;
+  }
+  .pl__sphere-shadow {
+    animation-name: moveSphereShadow;
+    background-image: radial-gradient(100% 100% at center, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0) 50%);
+    transform: translateY(8em) translateZ(15em) rotateX(90deg); /* Adjust shadow depth */
+  }
+  .pl__sphere:nth-of-type(1), .pl__sphere-shadow:nth-of-type(1) {
+    left: calc(50% - 11em); /* Adjust positioning */
+  }
+  .pl__sphere:nth-of-type(2), .pl__sphere-shadow:nth-of-type(2) {
+    left: calc(50% - 5em); /* Adjust positioning */
+    animation-delay: 0.1s;
+  }
+  .pl__sphere:nth-of-type(3), .pl__sphere-shadow:nth-of-type(3) {
+    left: calc(50% + 1em); /* Adjust positioning */
+    animation-delay: 0.2s;
+  }
+  .pl__sphere:nth-of-type(4), .pl__sphere-shadow:nth-of-type(4) {
+    left: calc(50% + 7em); /* Adjust positioning */
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes moveSphere {
+    from, to {
+      filter: brightness(100%) blur(0);
+      -webkit-filter: brightness(100%) blur(0);
+      transform: translateZ(15em);
+    }
+    25%, 75% {
+      filter: brightness(100%) blur(0);
+      -webkit-filter: brightness(100%) blur(0);
+      transform: translateZ(20em);
+    }
+    50% {
+      filter: brightness(80%) blur(6px); /* Increase blur effect */
+      -webkit-filter: brightness(80%) blur(6px); /* Increase blur effect */
+      transform: translateZ(-15em); /* Adjust depth */
+    }
+  }
+  
+  @keyframes moveSphereShadow {
+    from, to {
+      transform: translateY(8em) translateZ(15em) rotateX(90deg); /* Adjust shadow depth */
+    }
+    25%, 75% {
+      transform: translateY(8em) translateZ(20em) rotateX(90deg); /* Adjust shadow depth */
+    }
+    50% {
+      transform: translateY(8em) translateZ(-15em) rotateX(90deg); /* Adjust shadow depth */
+    }
+  }
+  
+  /* Media Queries for Smaller Devices */
+  @media (max-width: 768px) {
+    .pl:before {
+      width: 25em; /* Smaller size for phones */
+      height: 25em; /* Smaller size for phones */
+      transform: translate(-50%, -50%) rotateX(90deg) translateZ(-4em); /* Adjust depth */
+    }
+    .pl__sphere {
+      transform: translateZ(8em); /* Adjust depth */
+    }
+    .pl__sphere, .pl__sphere-shadow {
+      width: 2em; /* Smaller size for phones */
+      height: 2em; /* Smaller size for phones */
+    }
+    .pl__sphere-shadow {
+      transform: translateY(4em) translateZ(8em) rotateX(90deg); /* Adjust shadow depth */
+    }
+    .pl__sphere:nth-of-type(1), .pl__sphere-shadow:nth-of-type(1) {
+      left: calc(50% - 5em); /* Adjust positioning */
+    }
+    .pl__sphere:nth-of-type(2), .pl__sphere-shadow:nth-of-type(2) {
+      left: calc(50% - 2em); /* Adjust positioning */
+      animation-delay: 0.1s;
+    }
+    .pl__sphere:nth-of-type(3), .pl__sphere-shadow:nth-of-type(3) {
+      left: calc(50% + 2em); /* Adjust positioning */
+      animation-delay: 0.2s;
+    }
+    .pl__sphere:nth-of-type(4), .pl__sphere-shadow:nth-of-type(4) {
+      left: calc(50% + 5em); /* Adjust positioning */
+      animation-delay: 0.3s;
+    }
+  }
+  
